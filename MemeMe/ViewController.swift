@@ -149,11 +149,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y = -getKeyboardHeight(notification)
+        // TODO: Use scrollView, or other more robust mechanism.
+        // Helpful -> http://stackoverflow.com/q/28813339
+        
+        if bottomMemeText.editing {
+            self.view.frame.origin.y = -getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -172,7 +179,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print(meme)
         alertMessage("Saved", message: "Meme has been saved successfully")
         
-        // TODO: collections and presistance.
+        // Next will be collections and presistance.
     }
     
     func generateMemedImage() -> UIImage {
@@ -241,5 +248,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareButton.enabled = true
         saveButton.enabled = true
     }
-    
 }
