@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraPickerButton: UIBarButtonItem!
@@ -63,9 +63,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePickerView.userInteractionEnabled = true
         imagePickerView.addSubview(topMemeText)
         imagePickerView.addSubview(bottomMemeText)
-        
-        topMemeText.delegate = self
-        bottomMemeText.delegate = self
     }
     
     
@@ -101,7 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // set source type of media, and present controller.
         pickerController.sourceType = type
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -110,7 +107,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let m = image as? UIImage {
             imagePickerView.image = m
-            self.dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
             activateSaveAndShareButtons()
         } else {
             alertMessage("Error", message: "Sorry, Image Selection Failed.")
@@ -153,14 +150,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Helpful -> http://stackoverflow.com/q/28813339
         
         if bottomMemeText.editing {
-            self.view.frame.origin.y = -getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
+        view.frame.origin.y = 0
     }
 
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -188,9 +183,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         toggleViewBars(hidden: true)
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIGraphicsBeginImageContext(view.frame.size)
         
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
@@ -202,8 +197,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func toggleViewBars(hidden hidden: Bool) {
-        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
-        self.toolbar.hidden = hidden
+        navigationController?.setNavigationBarHidden(hidden, animated: true)
+        toolbar.hidden = hidden
     }
     
     
@@ -220,7 +215,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
         }
         
-        self.presentViewController(activityController, animated: true, completion: nil)
+        presentViewController(activityController, animated: true, completion: nil)
     }
     
     
@@ -236,7 +231,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         alert.addAction(okAction)
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func activateCameraButtonIfAvailable() {
