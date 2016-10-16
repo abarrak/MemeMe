@@ -37,19 +37,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV9-vx-cnx">
-                                <rect key="frame" x="12" y="183" width="351" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV9-vx-cnx">
+                                <rect key="frame" x="16" y="85" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="uWO-WF-t2a"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6o-fb-Ba9">
-                                <rect key="frame" x="12" y="467" width="351" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6o-fb-Ba9">
+                                <rect key="frame" x="16" y="550" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="KEg-N7-DAm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-Vy-CvX">
-                                <rect key="frame" x="12" y="183" width="351" height="301"/>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfu-CC-xz7">
                                 <rect key="frame" x="-4" y="623" width="383" height="44"/>
                                 <items>
@@ -67,23 +70,26 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="paD-xs-P8y"/>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-Vy-CvX">
+                                <rect key="frame" x="16" y="64" width="343" height="559"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7ZE-aa-HQ3"/>
-                            <constraint firstItem="F6o-fb-Ba9" firstAttribute="trailing" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="Auc-hr-6cW"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JuH-06-Jpb"/>
-                            <constraint firstItem="F6o-fb-Ba9" firstAttribute="bottom" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="MSg-H8-uVc"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QED-Bg-Wbf"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="top" id="dKI-fB-br7"/>
-                            <constraint firstItem="F6o-fb-Ba9" firstAttribute="leading" secondItem="DPI-Vy-CvX" secondAttribute="leading" id="gJa-dC-i9X"/>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ipT-tK-xUI"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-4" id="lec-nb-jaT"/>
-                            <constraint firstItem="F6o-fb-Ba9" firstAttribute="centerX" secondItem="xfu-CC-xz7" secondAttribute="centerX" id="lmm-34-IU4"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="leading" secondItem="DPI-Vy-CvX" secondAttribute="leading" id="oXD-7Q-LDr"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="119" id="s7l-Ke-NEA"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="centerX" secondItem="xfu-CC-xz7" secondAttribute="centerX" id="z3F-gt-ImH"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="zuO-rl-cOb"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="2il-R2-2QU"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="F6o-fb-Ba9" secondAttribute="bottom" constant="38" id="6Aq-uZ-PNs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="GGP-FA-9cx"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="F6o-fb-Ba9" secondAttribute="trailing" id="KxK-ds-OV2"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="Vwy-0D-3qj"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="leading" secondItem="F6o-fb-Ba9" secondAttribute="leading" id="Wuc-sS-dPc"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="ZTa-Lw-r3w"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="btM-OY-MrH"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="eAh-np-DN7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xfu-CC-xz7" secondAttribute="bottom" id="fLI-EP-H17"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="leading" secondItem="DPI-Vy-CvX" secondAttribute="leading" id="fyF-IV-hhq"/>
+                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mdN-79-0MU"/>
+                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pif-cZ-Onw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xfu-CC-xz7" secondAttribute="trailing" constant="-20" id="rPf-R2-8ac"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xPw-Y4-XJh">
