@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV9-vx-cnx">
-                                <rect key="frame" x="16" y="85" width="343" height="35"/>
+                                <rect key="frame" x="16" y="80" width="343" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="uWO-WF-t2a"/>
                                 </constraints>
@@ -49,7 +49,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6o-fb-Ba9">
-                                <rect key="frame" x="16" y="560" width="343" height="35"/>
+                                <rect key="frame" x="16" y="575" width="343" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="KEg-N7-DAm"/>
                                 </constraints>
@@ -83,12 +83,12 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="2il-R2-2QU"/>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="F6o-fb-Ba9" secondAttribute="bottom" constant="28" id="6Aq-uZ-PNs"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="F6o-fb-Ba9" secondAttribute="bottom" constant="13" id="6Aq-uZ-PNs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="GGP-FA-9cx"/>
                             <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="F6o-fb-Ba9" secondAttribute="trailing" id="KxK-ds-OV2"/>
                             <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="Vwy-0D-3qj"/>
                             <constraint firstItem="nV9-vx-cnx" firstAttribute="leading" secondItem="F6o-fb-Ba9" secondAttribute="leading" id="Wuc-sS-dPc"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="ZTa-Lw-r3w"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="ZTa-Lw-r3w"/>
                             <constraint firstItem="xfu-CC-xz7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="btM-OY-MrH"/>
                             <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="eAh-np-DN7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xfu-CC-xz7" secondAttribute="bottom" id="fLI-EP-H17"/>
