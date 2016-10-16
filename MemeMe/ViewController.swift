@@ -20,15 +20,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+
+    // Mark: VC Life Cycle and setup.
+    
     override func viewWillAppear(animated: Bool) {
-        let isCam = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        cameraPickerButton.enabled = isCam
+        super.viewWillAppear(animated)
+        activateCameraButtonIfAvailable()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFieldsAppearance()
-        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -77,6 +80,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.endEditing(true)
         return true
     }
     
@@ -121,6 +125,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Mark: Resolve Keyboard/UI issue.
     
     func subscribeToKeyboardNotifications() {
+        // FIXME: update to swift 3.0 syntax when upgrading Xcode.
+        
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "keyboardWillShow:",
             name: UIKeyboardWillShowNotification,
@@ -135,6 +141,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self,
             name: UIKeyboardWillShowNotification,
+            object: nil)
+
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIKeyboardWillHideNotification,
             object: nil)
     }
 
@@ -214,8 +224,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    func activateCameraButtonIfAvailable() {
+        let isCam = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        cameraPickerButton.enabled = isCam
+    }
+    
     func activateSaveAndShareButtons() {
         shareButton.enabled = true
         saveButton.enabled = true
     }
+    
 }
