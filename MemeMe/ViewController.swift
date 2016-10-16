@@ -39,14 +39,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setupTextFieldsAppearance() {
         // Add some styleing.
         let memeTextAttributes = [
-            // NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            // NSStrokeWidthAttributeName : 4.0
+            NSStrokeWidthAttributeName : -5.0,
         ]
+
         topMemeText.defaultTextAttributes = memeTextAttributes
         bottomMemeText.defaultTextAttributes = memeTextAttributes
-
+        
         // Position in the center.
         topMemeText.textAlignment = NSTextAlignment.Center
         bottomMemeText.textAlignment = NSTextAlignment.Center
@@ -158,10 +159,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memeImage = generateMemedImage()
         let meme = Meme(topText: topMemeText.text!, bottomText: bottomMemeText.text!,
                         originalImage: imagePickerView.image!, memedImage: memeImage)
-        
-        // TODO: presistance.
         print(meme)
         alertMessage("Saved", message: "Meme has been saved successfully")
+        
+        // TODO: collections and presistance.
     }
     
     func generateMemedImage() -> UIImage {
