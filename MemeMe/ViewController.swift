@@ -37,7 +37,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func setupTextFieldsAppearance() {
-        // Add some styleing ..
+        // Add some styleing.
         let memeTextAttributes = [
             // NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
@@ -47,15 +47,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topMemeText.defaultTextAttributes = memeTextAttributes
         bottomMemeText.defaultTextAttributes = memeTextAttributes
 
-        // Position in the center ..
+        // Position in the center.
         topMemeText.textAlignment = NSTextAlignment.Center
         bottomMemeText.textAlignment = NSTextAlignment.Center
 
-        // Make background transparent ..
+        // Make background transparent.
         topMemeText.backgroundColor = UIColor.clearColor()
         bottomMemeText.backgroundColor = UIColor.clearColor()
         
-        // They're childern of a UIImageView ..
+        // They're childern of a UIImageView.
         imagePickerView.userInteractionEnabled = true
         imagePickerView.addSubview(topMemeText)
         imagePickerView.addSubview(bottomMemeText)
@@ -80,14 +80,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func pickImageFromAlbum(sender: AnyObject) {
-        lunchPicker(UIImagePickerControllerSourceType.PhotoLibrary)
+        launchPicker(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     @IBAction func pickImageFromCamera(sender: AnyObject){
-        lunchPicker(UIImagePickerControllerSourceType.Camera)
+        launchPicker(UIImagePickerControllerSourceType.Camera)
     }
     
-    func lunchPicker(type: UIImagePickerControllerSourceType) {
+    func launchPicker(type: UIImagePickerControllerSourceType) {
         // init image picker.
         let pickerController = UIImagePickerController()
         
@@ -106,13 +106,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let m = image as? UIImage {
             imagePickerView.image = m
             self.dismissViewControllerAnimated(true, completion: nil)
-            shareButton.enabled = true
-            saveButton.enabled = true
+            activateSaveAndShareButtons()
         } else {
-            let alert = UIAlertController(title: "Error",
-                                          message: "Sorry, Image Selection Failed.",
-                                          preferredStyle: UIAlertControllerStyle.Alert)
-            showViewController(alert, sender: self)
+            alertMessage("Error", message: "Sorry, Image Selection Failed.")
         }
     }
     
@@ -142,11 +138,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        self.view.frame.origin.y = -getKeyboardHeight(notification)
     }
     
     func keyboardWillHide(notification: NSNotification) {
-//        self.view.frame.origin.y += getKeyboardHeight(notification)
         self.view.frame.origin.y = 0
     }
 
@@ -164,17 +159,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme(topText: topMemeText.text!, bottomText: bottomMemeText.text!,
                         originalImage: imagePickerView.image!, memedImage: memeImage)
         
-        // TODO: collections presistance.
-
+        // TODO: presistance.
         print(meme)
-        let alert = UIAlertController(title: "Saved",
-            message: "Meme has been saved successfully",
-            preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default) {
-            action in self.dismissViewControllerAnimated(true, completion: nil)
-        }
-        alert.addAction(okAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        alertMessage("Saved", message: "Meme has been saved successfully")
     }
     
     func generateMemedImage() -> UIImage {
@@ -208,5 +195,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
         self.presentViewController(activityController, animated: true, completion: nil)
+    }
+    
+    
+    // Mark: Helpers.
+    
+    func alertMessage(title: String, message: String) {
+        let alert = UIAlertController(title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default) {
+            action in self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alert.addAction(okAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func activateSaveAndShareButtons() {
+        shareButton.enabled = true
+        saveButton.enabled = true
     }
 }
