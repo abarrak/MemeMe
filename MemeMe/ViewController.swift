@@ -179,7 +179,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print(meme)
         alertMessage("Saved", message: "Meme has been saved successfully")
         
-        // Next will be collections and presistance.
+        // Next will be collections and persistence.
     }
     
     func generateMemedImage() -> UIImage {
