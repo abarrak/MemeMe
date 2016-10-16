@@ -114,13 +114,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                           preferredStyle: UIAlertControllerStyle.Alert)
             showViewController(alert, sender: self)
         }
-        
-        /*
-        // Reflect size change on the UITextField children views.
-        topMemeText.updateConstraints()
-        bottomMemeText.updateConstraints()
-        self.view.updateConstraints()
-        */
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -164,12 +157,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    // Mark: Handling Meme modeling ..
+    // Mark: Handling Meme modeling.
     
     @IBAction func save() {
         let memeImage = generateMemedImage()
         let meme = Meme(topText: topMemeText.text!, bottomText: bottomMemeText.text!,
-                        image: imagePickerView.image!, memedImage: memeImage)
+                        originalImage: imagePickerView.image!, memedImage: memeImage)
         
         // TODO: collections presistance.
 
@@ -208,7 +201,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.toolbar.hidden = hidden
     }
     
+    
     // Mark: Share functionality.
+    
     @IBAction func share() {
         let meme = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
