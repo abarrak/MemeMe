@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorVC.swift
 //  MemeMe
 //
 //  Created by Abdullah on 10/12/16.
@@ -47,7 +47,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName : -5.0,
         ]
-
         topMemeText.defaultTextAttributes = memeTextAttributes
         bottomMemeText.defaultTextAttributes = memeTextAttributes
         
@@ -206,15 +205,14 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     @IBAction func share() {
         let meme = generateMemedImage()
+        
         let activityController = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
-
         activityController.completionWithItemsHandler = {
             (type, completed, returnedItems, error) -> Void in
                 if completed {
                     self.save()
                 }
         }
-        
         presentViewController(activityController, animated: true, completion: nil)
     }
     
