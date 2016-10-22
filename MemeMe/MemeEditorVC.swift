@@ -173,7 +173,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         // Build single instance of meme model.
         let memeImage = generateMemedImage()
         let meme = Meme(topText: topMemeText.text!, bottomText: bottomMemeText.text!,
-                        originalImage: imagePickerView.image!, memedImage: memeImage)
+            originalImage: imagePickerView.image!, memedImage: memeImage, sentDate: NSDate())
         
         // store in shared model.
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

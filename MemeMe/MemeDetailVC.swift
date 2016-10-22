@@ -21,6 +21,7 @@ class MemeDetailVC: UIViewController {
         if let m = meme {
             setViewElement(m)
         }
+        
         toggleBottomBar(hidden: true)
     }
     
@@ -29,7 +30,14 @@ class MemeDetailVC: UIViewController {
     }
     
     func setViewElement(meme: Meme) {
-        sentDate.text = "Sent at: \(1 + 1)"
         memeViewer.image = meme.memedImage
+
+        // show datetime if it's set in model.
+        if meme.sentDate == nil {
+            sentDate.hidden = true
+        } else {
+            sentDate.hidden = false
+            sentDate.text = "Sent at: \(meme.sentAt()!)"
+        }
     }
 }

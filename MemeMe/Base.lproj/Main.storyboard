@@ -258,28 +258,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQp-Rc-wKS">
-                                <rect key="frame" x="20" y="41" width="560" height="559"/>
+                                <rect key="frame" x="20" y="20" width="560" height="550"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axN-wm-KdS">
-                                <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                <rect key="frame" x="0.0" y="575" width="600" height="25"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Klw-sx-SRH"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="cjY-kx-1Y2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94191919189999995" green="0.94191919189999995" blue="0.94191919189999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jQp-Rc-wKS" firstAttribute="top" secondItem="axN-wm-KdS" secondAttribute="bottom" id="0HX-uc-uxo"/>
-                            <constraint firstItem="axN-wm-KdS" firstAttribute="top" secondItem="YSl-oZ-9rz" secondAttribute="bottom" id="11f-ML-fHD"/>
-                            <constraint firstItem="axN-wm-KdS" firstAttribute="leading" secondItem="hts-dS-lMu" secondAttribute="leading" id="KP9-9V-JVS"/>
-                            <constraint firstItem="WWg-Qf-A7b" firstAttribute="top" secondItem="jQp-Rc-wKS" secondAttribute="bottom" id="KyE-91-xqp"/>
-                            <constraint firstItem="axN-wm-KdS" firstAttribute="centerX" secondItem="jQp-Rc-wKS" secondAttribute="centerX" id="ffi-fl-xek"/>
-                            <constraint firstItem="jQp-Rc-wKS" firstAttribute="leading" secondItem="hts-dS-lMu" secondAttribute="leadingMargin" id="hFv-qv-27Z"/>
-                            <constraint firstItem="jQp-Rc-wKS" firstAttribute="trailing" secondItem="hts-dS-lMu" secondAttribute="trailingMargin" id="tct-vf-XQu"/>
+                            <constraint firstItem="axN-wm-KdS" firstAttribute="top" secondItem="jQp-Rc-wKS" secondAttribute="bottom" constant="5" id="1nL-vd-cG3"/>
+                            <constraint firstItem="jQp-Rc-wKS" firstAttribute="leading" secondItem="hts-dS-lMu" secondAttribute="leadingMargin" id="4gz-d7-EFn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="axN-wm-KdS" secondAttribute="trailing" constant="-20" id="7Ji-NU-fz8"/>
+                            <constraint firstItem="jQp-Rc-wKS" firstAttribute="trailing" secondItem="hts-dS-lMu" secondAttribute="trailingMargin" id="Eyx-VQ-QfX"/>
+                            <constraint firstItem="WWg-Qf-A7b" firstAttribute="top" secondItem="axN-wm-KdS" secondAttribute="bottom" id="MSR-5Y-4yN"/>
+                            <constraint firstItem="axN-wm-KdS" firstAttribute="leading" secondItem="hts-dS-lMu" secondAttribute="leadingMargin" constant="-20" id="hMy-RE-ZgO"/>
+                            <constraint firstItem="axN-wm-KdS" firstAttribute="top" secondItem="jQp-Rc-wKS" secondAttribute="bottom" id="mMx-R4-RRm"/>
+                            <constraint firstItem="jQp-Rc-wKS" firstAttribute="top" secondItem="YSl-oZ-9rz" secondAttribute="bottom" id="n79-9p-YSF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mMx-R4-RRm"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
