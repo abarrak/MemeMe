@@ -20,12 +20,16 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    var memeModel: Meme?
+    
     // Mark: VC Life Cycle and setup.
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         activateCameraButtonIfAvailable()
         subscribeToKeyboardNotifications()
+
+        populateMeme()
 
         toggleBottomBar(hidden: true)
     }
@@ -180,7 +184,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         appDelegate.memes.append(meme)
         
         // friendly notify user.
-        alertMessage("Saved", message: "Meme has been saved successfully")
+        // alertMessage("Saved", message: "Meme has been saved successfully")
     }
     
     
@@ -197,6 +201,17 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
                 }
         }
         presentViewController(activityController, animated: true, completion: nil)
+    }
+    
+    
+    // Mark: Existing memes fillling for editing capability.
+    
+    func populateMeme() {
+        if let m = memeModel {
+            topMemeText.text = m.topText
+            bottomMemeText.text = m.bottomText
+            imagePickerView.image = m.originalImage
+        }
     }
     
     

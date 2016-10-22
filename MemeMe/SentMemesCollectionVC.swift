@@ -27,10 +27,12 @@ class SentMemesCollectionVC: UICollectionViewController {
     }
 
     func setFlowLayout() {
-        let space: CGFloat = 4.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        let interSpace: CGFloat = 4.0
+        let lineSpace: CGFloat = 15.0
+        let dimension = (view.frame.size.width - (2 * interSpace)) / 3.0
         
-        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumInteritemSpacing = interSpace
+        flowLayout.minimumLineSpacing = lineSpace
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
 

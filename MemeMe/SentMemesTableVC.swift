@@ -53,7 +53,7 @@ class SentMemesTableVC: UITableViewController {
         
         // Populate view controller with data from the selected item.
         memeDetailVC.meme = memes[indexPath.row]
-        
+                
         // Present the view controller using navigation.
         navigationController!.pushViewController(memeDetailVC, animated: true)
     }

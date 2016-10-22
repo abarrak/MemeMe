@@ -25,6 +25,11 @@ class MemeDetailVC: UIViewController {
         toggleBottomBar(hidden: true)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setEditNavBarButton()
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         toggleBottomBar(hidden: false)
     }
@@ -39,5 +44,22 @@ class MemeDetailVC: UIViewController {
             sentDate.hidden = false
             sentDate.text = "Sent at: \(meme.sentAt()!)"
         }
+    }
+    
+    func setEditNavBarButton() {
+        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: Selector("editMeme:"))
+        navigationItem.rightBarButtonItem = editButton
+    }
+    
+    @IBAction func editMeme(sender: AnyObject) {
+        // Create editor programmatically.
+        let memeEditorVC = storyboard?.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditorVC
+
+        // Set current meme as model for editing.
+        memeEditorVC.memeModel = meme
+
+        // Add editor to navigation stack and present it.
+        toggleBottomBar(hidden: false)
+        navigationController?.pushViewController(memeEditorVC, animated: true)
     }
 }
