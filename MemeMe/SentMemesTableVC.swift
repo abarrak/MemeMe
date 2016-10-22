@@ -32,18 +32,13 @@ class SentMemesTableVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("TableMemeCell") as! CustomTableMemeCell
         let meme = memes[indexPath.row]
-        
-        // Set memes title and image.
-        cell.textLabel?.text = meme.topText
-        cell.imageView?.image = meme.memedImage
-        
-        // If the cell has a detail label, we will set it to bottom text.
-        if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = meme.bottomText
-        }
 
+        // Set meme's titles and image.
+        cell.setTexts(meme.topText, bottom: meme.bottomText)
+        cell.setMeme(meme.memedImage)
+        
         return cell
     }
         
