@@ -43,7 +43,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV9-vx-cnx">
                                 <rect key="frame" x="20" y="80" width="560" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="uWO-WF-t2a"/>
+                                    <constraint firstAttribute="height" constant="35" id="Zsi-Qv-VMx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -54,7 +54,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6o-fb-Ba9">
                                 <rect key="frame" x="20" y="508" width="560" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="KEg-N7-DAm"/>
+                                    <constraint firstAttribute="height" constant="35" id="jQo-U0-A2C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -85,24 +85,19 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="2il-R2-2QU"/>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="F6o-fb-Ba9" secondAttribute="bottom" constant="13" id="6Aq-uZ-PNs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="GGP-FA-9cx"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="F6o-fb-Ba9" secondAttribute="trailing" id="KxK-ds-OV2"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NcD-cC-Fnk"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QNV-ys-2cF"/>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="Vwy-0D-3qj"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="leading" secondItem="F6o-fb-Ba9" secondAttribute="leading" id="Wuc-sS-dPc"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="ZTa-Lw-r3w"/>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="btM-OY-MrH"/>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="ck9-Wn-z7M"/>
-                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="eAh-np-DN7"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xfu-CC-xz7" secondAttribute="bottom" id="fLI-EP-H17"/>
-                            <constraint firstItem="nV9-vx-cnx" firstAttribute="leading" secondItem="DPI-Vy-CvX" secondAttribute="leading" id="fyF-IV-hhq"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mdN-79-0MU"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pif-cZ-Onw"/>
-                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qKC-K3-tgz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xfu-CC-xz7" secondAttribute="trailing" constant="-20" id="rPf-R2-8ac"/>
+                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="01Y-3v-twj"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="F6o-fb-Ba9" secondAttribute="trailing" id="07X-Jj-j17"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="leading" secondItem="F6o-fb-Ba9" secondAttribute="leading" id="0fa-9u-9Uh"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="36S-MQ-9LK"/>
+                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="APe-mZ-gYa"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="centerX" secondItem="DPI-Vy-CvX" secondAttribute="centerX" id="Co8-eO-4jp"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="DPI-Vy-CvX" secondAttribute="bottom" id="GAe-qg-jw5"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="K23-oi-ELR"/>
+                            <constraint firstItem="nV9-vx-cnx" firstAttribute="trailing" secondItem="DPI-Vy-CvX" secondAttribute="trailing" id="RY5-wJ-0oP"/>
+                            <constraint firstItem="F6o-fb-Ba9" firstAttribute="leading" secondItem="DPI-Vy-CvX" secondAttribute="leading" id="Yot-ee-P3j"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="top" secondItem="F6o-fb-Ba9" secondAttribute="bottom" constant="13" id="eqA-RQ-SAG"/>
+                            <constraint firstItem="DPI-Vy-CvX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ezP-27-VdB"/>
+                            <constraint firstItem="xfu-CC-xz7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gLA-js-GwE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xPw-Y4-XJh">

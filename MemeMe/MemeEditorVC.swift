@@ -29,14 +29,13 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         activateCameraButtonIfAvailable()
         subscribeToKeyboardNotifications()
 
-        populateMeme()
-
         toggleBottomBar(hidden: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFieldsAppearance()
+        populateMeme()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -211,6 +210,8 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             topMemeText.text = m.topText
             bottomMemeText.text = m.bottomText
             imagePickerView.image = m.originalImage
+
+            activateSaveAndShareButtons()
         }
     }
     
