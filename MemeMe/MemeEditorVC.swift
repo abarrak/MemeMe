@@ -20,13 +20,14 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
-
     // Mark: VC Life Cycle and setup.
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         activateCameraButtonIfAvailable()
         subscribeToKeyboardNotifications()
+
+        toggleBottomBar(hidden: true)
     }
     
     override func viewDidLoad() {
@@ -37,6 +38,8 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+
+        toggleBottomBar(hidden: false)
     }
     
     func setupTextFieldsAppearance() {
@@ -167,37 +170,17 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     // Mark: Handling Meme modeling.
     
     @IBAction func save() {
+        // Build single instance of meme model.
         let memeImage = generateMemedImage()
         let meme = Meme(topText: topMemeText.text!, bottomText: bottomMemeText.text!,
                         originalImage: imagePickerView.image!, memedImage: memeImage)
-        print(meme)
+        
+        // store in shared model.
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.memes.append(meme)
+        
+        // friendly notify user.
         alertMessage("Saved", message: "Meme has been saved successfully")
-        
-        // Next will be collections and persistence.
-    }
-    
-    func generateMemedImage() -> UIImage {
-        
-        // Hide toolbar and navbar
-        toggleViewBars(hidden: true)
-        
-        // Render view to an image
-        UIGraphicsBeginImageContext(view.frame.size)
-        
-        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        // Show toolbar and navbar
-        toggleViewBars(hidden: false)
-
-        return memedImage
-    }
-    
-    func toggleViewBars(hidden hidden: Bool) {
-        navigationController?.setNavigationBarHidden(hidden, animated: true)
-        toolbar.hidden = hidden
     }
     
     
@@ -240,5 +223,28 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     func activateSaveAndShareButtons() {
         shareButton.enabled = true
         saveButton.enabled = true
+    }
+    
+    func generateMemedImage() -> UIImage {
+        // Hide toolbar and navbar
+        toggleViewBars(hidden: true)
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(view.frame.size)
+        
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        // Show toolbar and navbar
+        toggleViewBars(hidden: false)
+        
+        return memedImage
+    }
+    
+    func toggleViewBars(hidden hidden: Bool) {
+        navigationController?.setNavigationBarHidden(hidden, animated: true)
+        toolbar.hidden = hidden
     }
 }
