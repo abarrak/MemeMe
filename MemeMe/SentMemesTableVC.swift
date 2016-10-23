@@ -19,12 +19,6 @@ class SentMemesTableVC: UITableViewController {
         tableView.reloadData()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
     // MARK: Table View Data Source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,14 +37,7 @@ class SentMemesTableVC: UITableViewController {
     }
         
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // Grab the MemeDetailVC from Storyboard.
-        let memeDetailVC = storyboard?.instantiateViewControllerWithIdentifier("MemeDetail") as! MemeDetailVC
-        
-        // Populate view controller with data from the selected item.
-        memeDetailVC.meme = memes[indexPath.row]
-                
-        // Present the view controller using navigation.
-        navigationController!.pushViewController(memeDetailVC, animated: true)
+        super.launchMemeViewer(memes[indexPath.row])
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

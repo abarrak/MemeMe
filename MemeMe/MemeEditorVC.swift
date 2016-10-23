@@ -16,6 +16,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var bottomMemeText: UITextField!
 
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var navbar: UINavigationBar!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
@@ -27,8 +28,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         super.viewWillAppear(animated)
         activateCameraButtonIfAvailable()
         subscribeToKeyboardNotifications()
-
-        toggleBottomBar(hidden: true)
     }
     
     override func viewDidLoad() {
@@ -40,33 +39,16 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
-
-        toggleBottomBar(hidden: false)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     func setupTextFieldsAppearance() {
-        // Add some styleing.
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -5.0,
-        ]
-        topMemeText.defaultTextAttributes = memeTextAttributes
-        bottomMemeText.defaultTextAttributes = memeTextAttributes
-        
-        // Position in the center.
-        topMemeText.textAlignment = NSTextAlignment.Center
-        bottomMemeText.textAlignment = NSTextAlignment.Center
-
-        // Make background transparent.
-        topMemeText.backgroundColor = UIColor.clearColor()
-        bottomMemeText.backgroundColor = UIColor.clearColor()
-        
-        // They're childern of a UIImageView.
         imagePickerView.userInteractionEnabled = true
-        imagePickerView.addSubview(topMemeText)
-        imagePickerView.addSubview(bottomMemeText)
+        stylizeTextField(topMemeText)
+        stylizeTextField(bottomMemeText)
     }
     
     
@@ -214,8 +196,31 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         }
     }
     
+    @IBAction func cancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     // Mark: Helpers.
+    
+    func stylizeTextField(textField: UITextField) {
+        // Some styling.
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -5.0,
+        ]
+        textField.defaultTextAttributes = memeTextAttributes
+        
+        // Position in the center.
+        textField.textAlignment = NSTextAlignment.Center
+        
+        // Make background transparent.
+        textField.backgroundColor = UIColor.clearColor()
+        
+        // It's a child of a UIImageView.
+        imagePickerView.addSubview(textField)
+    }
     
     func alertMessage(title: String, message: String) {
         let alert = UIAlertController(title: title,
@@ -258,7 +263,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     func toggleViewBars(hidden hidden: Bool) {
-        navigationController?.setNavigationBarHidden(hidden, animated: true)
+        navbar.hidden = hidden
         toolbar.hidden = hidden
     }
 }

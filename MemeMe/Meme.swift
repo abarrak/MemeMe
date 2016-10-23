@@ -28,5 +28,4 @@ struct Meme {
             return nil
         }
     }
-    
 }

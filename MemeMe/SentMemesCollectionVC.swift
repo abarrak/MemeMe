@@ -55,13 +55,6 @@ class SentMemesCollectionVC: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // Grab the MemeDetailVC from Storyboard.
-        let memeDetailVC = storyboard?.instantiateViewControllerWithIdentifier("MemeDetail") as! MemeDetailVC
-        
-        // Populate view controller with data from the selected item.
-        memeDetailVC.meme = memes[indexPath.row]
-        
-        // Present the view controller using navigation.
-        navigationController!.pushViewController(memeDetailVC, animated: true)
+        super.launchMemeViewer(memes[indexPath.row])
     }
 }

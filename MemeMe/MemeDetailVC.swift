@@ -21,7 +21,6 @@ class MemeDetailVC: UIViewController {
         if let m = meme {
             setViewElement(m)
         }
-        
         toggleBottomBar(hidden: true)
     }
     
@@ -52,14 +51,6 @@ class MemeDetailVC: UIViewController {
     }
     
     @IBAction func editMeme(sender: AnyObject) {
-        // Create editor programmatically.
-        let memeEditorVC = storyboard?.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditorVC
-
-        // Set current meme as model for editing.
-        memeEditorVC.memeModel = meme
-
-        // Add editor to navigation stack and present it.
-        toggleBottomBar(hidden: false)
-        navigationController?.pushViewController(memeEditorVC, animated: true)
+        super.launchMemeEditor(meme!)
     }
 }
