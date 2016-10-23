@@ -9,9 +9,10 @@
 import UIKit
 
 class CustomCollectionMemeCell: UICollectionViewCell {
-    
-    func setText(labelText: String) {
-        
+    @IBOutlet weak var memeImage: UIImageView!
+
+    func setMeme(image: UIImage) {
+        memeImage.image = image
     }
 }
 
