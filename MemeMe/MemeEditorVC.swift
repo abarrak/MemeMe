@@ -93,8 +93,8 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
         if let m = image as? UIImage {
             imagePickerView.image = m
-            dismissViewControllerAnimated(true, completion: nil)
             activateShareButton()
+            picker.dismissViewControllerAnimated(true, completion: nil)
         } else {
             alertMessage("Error", message: "Sorry, Image Selection Failed.")
         }
@@ -164,7 +164,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         appDelegate.memes.append(meme)
         
         // friendly notify user.
-        alertMessage("Sent", message: "Meme has been sent successfully.")
+        // alertMessage("Sent", message: "Meme has been sent successfully.")
     }
     
     
@@ -178,6 +178,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             (type, completed, returnedItems, error) -> Void in
                 if completed {
                     self.save()
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
         }
         presentViewController(activityController, animated: true, completion: nil)
