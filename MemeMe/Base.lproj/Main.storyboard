@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View as Table-->
@@ -101,25 +100,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xPw-Y4-XJh">
-                        <rightBarButtonItems>
-                            <barButtonItem enabled="NO" systemItem="save" id="BMD-5n-eb3">
-                                <connections>
-                                    <action selector="save" destination="BYZ-38-t0r" id="WQy-TC-L00"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem enabled="NO" systemItem="action" id="GqN-Yu-bNc">
-                                <connections>
-                                    <action selector="share" destination="BYZ-38-t0r" id="YrR-c7-sf9"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="GqN-Yu-bNc">
+                            <connections>
+                                <action selector="share" destination="BYZ-38-t0r" id="YrR-c7-sf9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomMemeText" destination="F6o-fb-Ba9" id="zSA-rh-Hzd"/>
                         <outlet property="cameraPickerButton" destination="iiL-Si-du4" id="O4F-cR-RBt"/>
                         <outlet property="imagePickerView" destination="DPI-Vy-CvX" id="Q2t-Kn-3NM"/>
-                        <outlet property="saveButton" destination="BMD-5n-eb3" id="TW6-AI-sTf"/>
                         <outlet property="shareButton" destination="GqN-Yu-bNc" id="3D9-QV-sxn"/>
                         <outlet property="toolbar" destination="xfu-CC-xz7" id="UWg-w5-7Wn"/>
                         <outlet property="topMemeText" destination="nV9-vx-cnx" id="230-AL-r9f"/>

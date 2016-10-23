@@ -17,7 +17,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
 
     @IBOutlet weak var toolbar: UIToolbar!
     
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var memeModel: Meme?
@@ -113,7 +112,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         if let m = image as? UIImage {
             imagePickerView.image = m
             dismissViewControllerAnimated(true, completion: nil)
-            activateSaveAndShareButtons()
+            activateShareButton()
         } else {
             alertMessage("Error", message: "Sorry, Image Selection Failed.")
         }
@@ -172,7 +171,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     // Mark: Handling Meme modeling.
     
-    @IBAction func save() {
+    func save() {
         // Build single instance of meme model.
         let memeImage = generateMemedImage()
         let meme = Meme(topText: topMemeText.text!, bottomText: bottomMemeText.text!,
@@ -183,7 +182,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         appDelegate.memes.append(meme)
         
         // friendly notify user.
-        // alertMessage("Saved", message: "Meme has been saved successfully")
+        alertMessage("Sent", message: "Meme has been sent successfully.")
     }
     
     
@@ -211,7 +210,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             bottomMemeText.text = m.bottomText
             imagePickerView.image = m.originalImage
 
-            activateSaveAndShareButtons()
+            activateShareButton()
         }
     }
     
@@ -236,9 +235,8 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         cameraPickerButton.enabled = isCam
     }
     
-    func activateSaveAndShareButtons() {
+    func activateShareButton() {
         shareButton.enabled = true
-        saveButton.enabled = true
     }
     
     func generateMemedImage() -> UIImage {
