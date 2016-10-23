@@ -16,8 +16,8 @@ struct Meme {
     let memedImage: UIImage
     let sentDate: NSDate?
     
-    // Format a string representation of the sent time, if any.
-    func sentAt() -> String? {
+    // Property for string representation of the sentDate value, if any.
+    var sentAt: String? {
         if let date = sentDate {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "MMM dd, yyyy h:mm a"

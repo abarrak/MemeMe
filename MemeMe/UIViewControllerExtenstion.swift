@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     
     func toggleBottomBar(hidden hidden: Bool) {
-        self.tabBarController!.tabBar.hidden = hidden
+        tabBarController!.tabBar.hidden = hidden
     }
     
     func launchMemeViewer(meme: Meme) {

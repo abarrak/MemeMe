@@ -30,6 +30,7 @@ class MemeDetailVC: UIViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         toggleBottomBar(hidden: false)
     }
     
@@ -41,7 +42,7 @@ class MemeDetailVC: UIViewController {
             sentDate.hidden = true
         } else {
             sentDate.hidden = false
-            sentDate.text = "Sent at: \(meme.sentAt()!)"
+            sentDate.text = "Sent at: \(meme.sentAt!)"
         }
     }
     

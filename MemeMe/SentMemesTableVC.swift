@@ -26,7 +26,7 @@ class SentMemesTableVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TableMemeCell") as! CustomTableMemeCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TableMemeCell") as! MemeTableViewCell
         let meme = memes[indexPath.row]
 
         // Set meme's titles and image.

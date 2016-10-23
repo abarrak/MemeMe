@@ -22,10 +22,6 @@ class SentMemesCollectionVC: UICollectionViewController {
         collectionView?.reloadData()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     func setFlowLayout() {
         let interSpace: CGFloat = 3.0
         let lineSpace: CGFloat = 8.0
@@ -40,13 +36,12 @@ class SentMemesCollectionVC: UICollectionViewController {
 
     // MARK: Table View Data Source
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionMemeCell", forIndexPath: indexPath) as! CustomCollectionMemeCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionMemeCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         
         let meme = memes[indexPath.item]
         cell.setMeme(meme.memedImage)
